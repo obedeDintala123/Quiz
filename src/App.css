@@ -1,0 +1,166 @@
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.1fr 1.9fr;
+  grid-template-areas: "header header"
+                       "main main"
+                       ;
+}
+
+.app-header {
+  padding: 10px 60px;
+  grid-area: header;
+}
+
+.logo-content img {
+  width: 200px;
+  height: 90px;
+}
+
+.logo-content .logoDesktop{
+  display: block;
+}
+
+.logo-content .logoMobile{
+  display: none;
+}
+
+.app-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  grid-area: main;
+}
+
+.content1{
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+ .content1 span{
+  font-size: 48px;
+  color: #293855;
+}
+
+.content1 a{
+  text-decoration: none;
+  color: #fff;
+  background: #F2AC20;
+  padding: 10px 60px;
+  border: none;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.content2 img{
+  width: 800px;
+  height: 570px;
+}
+
+.mobile-content{
+  display: none;
+}
+
+@media only screen and (max-width: 768px){
+
+  body{
+    background: #4265D6 !important;
+  }
+
+  .container{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 4fr;
+    grid-template-areas: "header header"
+                       "main main"
+                       "section section";
+
+  }
+
+  .app-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-content .logoDesktop{
+    display: none;
+  }
+  
+  .logo-content .logoMobile{
+    display: block;
+  }
+
+  .content1{
+    display: none;
+  }
+
+  .app-main{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .content2 img{
+    width: 500px;
+    height: 350px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -65%);
+    z-index: 999;
+  }
+
+  .mobile-content{
+    position: fixed;
+    bottom: 0;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background: #fff;
+    height: 320px;
+    grid-area: section;
+  }
+
+  .text-mobile{
+    margin-top: 70px;
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .text-mobile span{
+    font-size: 12px;
+  }
+
+  .buttons-content{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  a{
+    text-decoration: none;
+    padding: 10px 60px;
+    border-radius: 50px;
+  }
+
+  .play{
+    background: #F2AC20;
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .how-play{
+    background: #4265D6;
+    color: #fff;
+    font-weight: 500;
+  }
+}
