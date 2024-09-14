@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9722760f.css",
+    "main.js": "/static/js/main.469cffcc.js",
+    "static/media/Gastronomia.svg": "/static/media/Gastronomia.0a715149fb399f3a40e2.svg",
+    "static/media/Literatura.svg": "/static/media/Literatura.7feee1baa99ce8890fa7.svg",
+    "static/media/Geografia.svg": "/static/media/Geografia.bfc2f19b37b6315af28f.svg",
+    "static/media/Mitos.svg": "/static/media/Mitos.228c6a8f221354ee3ee2.svg",
+    "static/media/Filmes.svg": "/static/media/Filmes.0fe237a8b6a8bc00f9c2.svg",
+    "static/media/pexels-heibbymarvel-5745888.svg": "/static/media/pexels-heibbymarvel-5745888.0f9f1b5e8beea35d08c1.svg",
+    "static/media/Desporto.svg": "/static/media/Desporto.65a3d696a72f5988327a.svg",
+    "static/media/Personalizar.svg": "/static/media/Personalizar.b27c6a786af5a9c31375.svg",
+    "static/media/pexels-luis-gomes-166706-546819.svg": "/static/media/pexels-luis-gomes-166706-546819.4c3507dea70dd4ad714d.svg",
+    "static/media/pexels-pixabay-159679.svg": "/static/media/pexels-pixabay-159679.b13b418b54aea504a2cc.svg",
+    "static/media/Animais.svg": "/static/media/Animais.7640bf4a2cfc1bb302fa.svg",
+    "static/media/Game day-amico (1) 2.svg": "/static/media/Game day-amico (1) 2.5947f8b64f71c34ba96a1f12135baa5e.svg",
+    "static/media/Poppins-Regular.ttf": "/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
+    "static/media/Poppins-Medium.ttf": "/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
+    "static/media/Poppins-SemiBold.ttf": "/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
+    "static/media/Poppins-Bold.ttf": "/static/media/Poppins-Bold.cdb29a5d7ccf57ff05a3.ttf",
+    "static/media/Logo.svg": "/static/media/Logo.5223b16c219d064aea0e9a6e4ab42478.svg",
+    "static/media/mobile.svg": "/static/media/mobile.f591a90e0d7325de7067c307ba35dff6.svg",
+    "static/media/Reload.svg": "/static/media/Reload.328680d64ef6d42979ea1a3f6a2d4faf.svg",
+    "index.html": "/index.html",
+    "main.9722760f.css.map": "/static/css/main.9722760f.css.map",
+    "main.469cffcc.js.map": "/static/js/main.469cffcc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9722760f.css",
+    "static/js/main.469cffcc.js"
+  ]
+}
