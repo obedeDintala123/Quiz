@@ -160,6 +160,14 @@ function Biblia() {
     },
   ];
 
+  const resetButtonStyles = () => {
+    const allButtons = document.querySelectorAll(".opcoes button");
+    allButtons.forEach((button) => {
+      button.style.background = ""; // Remove a cor de fundo
+      button.style.color = ""; // Remove a cor do texto
+    });
+  };
+
   const perguntaAtual = perguntas[currentQuestion];
 
   const handleOptionClick = (e) => {
@@ -167,11 +175,7 @@ function Biblia() {
     setSelectedButton(e.target); // Define o botão clicado
 
     // Resetando o estilo de todos os botões
-    const allButtons = document.querySelectorAll(".opcoes button");
-    allButtons.forEach((button) => {
-      button.style.background = "";
-      button.style.color = "";
-    });
+    resetButtonStyles();
 
     // Aplica estilo apenas ao botão clicado
     e.target.style.background = "#F2AC20";
@@ -184,40 +188,40 @@ function Biblia() {
     }
 
     if (selectOptions === perguntaAtual.respostaCorreta) {
-      selectedButton.style.background="green";
-      alert("Correto!");
+      selectedButton.style.background="#00A783";
       setPontos((Prev) => (Prev += 10));
       setRespostasCertas((Prev) => Prev + 1);
     } else {
-      alert(
-        `Errado! A resposta correta é ${
-          perguntaAtual.opcoes.find(
-            (o) => o.name === perguntaAtual.respostaCorreta
-          ).resposta
-        }.`
-      );
-      setRespostasErradas((Prev) => Prev + 1);
       selectedButton.style.backgroundColor = "red";
+
+      setRespostasErradas((Prev) => Prev + 1);
+      const correctButton = document.querySelector(
+        `.opcoes button[name="${perguntaAtual.respostaCorreta}"]`
+      );
+      correctButton.style.backgroundColor = "#00A783";
+      correctButton.style.color = "#fff";
     }
 
     // Vai para a próxima pergunta se houver
     if (currentQuestion < perguntas.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      setSelectOptions(""); // Reseta a opção selecionada
-      const allButtons = document.querySelectorAll(".opcoes button");
-      allButtons.forEach((button) => {
-        button.style.background = "";
-        button.style.color = "";
-      });
+      setTimeout(() => {
+        setCurrentQuestion(currentQuestion + 1);
+        setSelectOptions(""); // Reseta a opção selecionada
+        setSelectedButton(null); // Reseta o botão selecionado
+        resetButtonStyles();
+      }, 1000); // Espera 1 segundo antes de ir para a próxima pergunta
     } else {
-      setQuizTerminado(true);
-    }
-  };
+      setTimeout(() => {
+        setQuizTerminado(true);
+      }, 1000);
+  }
+}
 
   const Pular = () => {
     if (currentQuestion < perguntas.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectOptions("");
+      resetButtonStyles();
     } else {
       setQuizTerminado(true);
     }
