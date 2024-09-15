@@ -9,36 +9,40 @@ function QuizTerminado({ pontos, respostasCertas, respostasErradas }) {
   const navegate = useNavigate(); // Hook para redirecionar
   return (
     <div>
-       <header className="header-biblia">
-            <img src={logo} alt="logo" className="logo" />
-            <div className="user-profile">
-              <span className="user-text">{userInitial}</span>
-            </div>
+      <header className="header-biblia">
+        <img src={logo} alt="logo" className="logo" />
+        <div className="user-profile">
+          <span className="user-text">{userInitial}</span>
+        </div>
       </header>
       <div className="voltar-content">
-            <button onClick={()=> navegate('/categorias')}>Voltar</button>
+        <button onClick={() => navegate("/categorias")}>Voltar</button>
       </div>
       <div className="quizTerminado-container">
-      <div className="pontuacao-content">
-        <span>Pontuação</span>
-        <span>{pontos}</span>
-      </div>
-      <div className="respostas-container">
-        <div className="respostasCertas-content">
-          <span>Respostas certas</span>
-          <span>{respostasCertas}</span>
+        <div className="pontuacao-content">
+          <span>Pontuação</span>
+          <span>{pontos}</span>
         </div>
-        <div className="respostasErradas-content">
-          <span>Respostas Erradas</span>
-          <span>{respostasErradas}</span>
+        <div className="respostas-container">
+          <div className="respostasCertas-content">
+            <span>Respostas certas</span>
+            <span>{respostasCertas}</span>
+          </div>
+          <div className="respostasErradas-content">
+            <span>Respostas Erradas</span>
+            <span>{respostasErradas}</span>
+          </div>
         </div>
-      </div>
-      <div className="buttonsReload">
-        <img src={Reload} alt="RepetirQuiz" onClick={() => window.location.reload()}/>
-        <button onClick={() => window.location.reload()}>
-          Jogar Novamente
-        </button>
-      </div>
+        <div className="buttonsReload">
+          <img
+            src={Reload}
+            alt="RepetirQuiz"
+            onClick={() => window.location.reload()}
+          />
+          <button onClick={() => window.location.reload()}>
+            Jogar Novamente
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -46,7 +50,7 @@ function QuizTerminado({ pontos, respostasCertas, respostasErradas }) {
 
 function Biblia() {
   const [respostasCertas, setRespostasCertas] = useState(0);
-  const [respostasErradas, setRespostasErradas] = useState(0);  
+  const [respostasErradas, setRespostasErradas] = useState(0);
   const userInitial = localStorage.getItem("userInitial");
   const [quizTerminado, setQuizTerminado] = useState(false);
   const [selectOptions, setSelectOptions] = useState("");
@@ -188,7 +192,7 @@ function Biblia() {
     }
 
     if (selectOptions === perguntaAtual.respostaCorreta) {
-      selectedButton.style.background="#00A783";
+      selectedButton.style.background = "#00A783";
       setPontos((Prev) => (Prev += 10));
       setRespostasCertas((Prev) => Prev + 1);
     } else {
@@ -214,8 +218,8 @@ function Biblia() {
       setTimeout(() => {
         setQuizTerminado(true);
       }, 1000);
-  }
-}
+    }
+  };
 
   const Pular = () => {
     if (currentQuestion < perguntas.length - 1) {
@@ -225,13 +229,16 @@ function Biblia() {
     } else {
       setQuizTerminado(true);
     }
-
   };
 
   return (
     <>
       {quizTerminado ? (
-        <QuizTerminado pontos={pontos} respostasCertas={respostasCertas} respostasErradas={respostasErradas}/>
+        <QuizTerminado
+          pontos={pontos}
+          respostasCertas={respostasCertas}
+          respostasErradas={respostasErradas}
+        />
       ) : (
         <div>
           <header className="header-biblia">
@@ -241,7 +248,7 @@ function Biblia() {
             </div>
           </header>
           <div className="voltar-content">
-            <button onClick={()=> navegate('/categorias')}>Voltar</button>
+            <button onClick={() => navegate("/categorias")}>Voltar</button>
           </div>
           <div className="perguntas-container">
             <div className="pergunta1">
@@ -255,7 +262,11 @@ function Biblia() {
                 <span>{perguntaAtual.pergunta}</span>
                 <div className="opcoes">
                   {perguntaAtual.opcoes.map((opcao, index) => (
-                    <button key={index} name={opcao.name} onClick={handleOptionClick}>
+                    <button
+                      key={index}
+                      name={opcao.name}
+                      onClick={handleOptionClick}
+                    >
                       {opcao.name}) {opcao.resposta}
                     </button>
                   ))}

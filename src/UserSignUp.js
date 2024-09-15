@@ -9,29 +9,37 @@ function UserSignUp() {
   const inputPassword = useRef();
   const navegate = useNavigate();
   const [showSignIn, setShowSignIn] = useState(false);
-  
   async function createUser(e) {
     e.preventDefault(); // Previne o comportamento padrão do formulário de recarregar a página
+    const userNameValue = inputName.current.value;
+    const userPasswordValue = inputPassword.current.value;
+    if (userNameValue.length < 8) {
+      alert("O nome de usuário deve ter pelo menos 8 caracteres.");
+      return;
+    }
+
+    if (userPasswordValue.length < 8) {
+      alert("A senha deve ter pelo menos 8 caracteres.");
+      return;
+    }
 
     try {
       const response = await api.post("/signup", {
-        name: inputName.current.value,
-        password: inputPassword.current.value,
+        name: userNameValue,
+        password: userPasswordValue,
       });
       console.log("User created:", response.data);
 
-      localStorage.setItem("userInitial", inputName.current.value.charAt(0));
+      localStorage.setItem("userInitial", userNameValue.charAt(0));
 
       navegate("/categorias");
     } catch (error) {
       if (error.response && error.response.data && error.response.data.error) {
         const messageError = error.response.data.error;
-        if (messageError === "Usuário já existente") {
-          if (window.confirm("Usuário já existente. Pretende entrar?")) {
-            setShowSignIn(true);
-          }
+        if (messageError === "Senha incorreta") {
+          alert("Senha incorreta.");
         } else {
-          console.error("Error creating user:", messageError);
+         setShowSignIn(true);
         }
       } else {
         console.error("Error creating user:", error);
@@ -42,8 +50,8 @@ function UserSignUp() {
   return (
     <div className="container-SignUp">
       {showSignIn ? (
-        localStorage.setItem("userInitial", inputName.current.value.charAt(0)),
-        navegate('/categorias')
+        (localStorage.setItem("userInitial", inputName.current.value.charAt(0)),
+        navegate("/categorias"))
       ) : (
         <>
           <div className="logo-content">
