@@ -196,7 +196,7 @@ function Biblia() {
       setPontos((Prev) => (Prev += 10));
       setRespostasCertas((Prev) => Prev + 1);
     } else {
-      selectedButton.style.backgroundColor = "red";
+      selectedButton.style.backgroundColor = "#C91827";
 
       setRespostasErradas((Prev) => Prev + 1);
       const correctButton = document.querySelector(
