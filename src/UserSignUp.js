@@ -59,6 +59,7 @@ function UserSignUp() {
                 id="username"
                 required
                 ref={inputName}
+                minLength={8}
               />
             </div>
             <div className="password-content">
@@ -68,6 +69,7 @@ function UserSignUp() {
                 placeholder="Example@123"
                 required
                 ref={inputPassword}
+                minLength={8}
               />
             </div>
             <button className="continuar-button" type="submit">

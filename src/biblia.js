@@ -184,6 +184,7 @@ function Biblia() {
     }
 
     if (selectOptions === perguntaAtual.respostaCorreta) {
+      selectedButton.style.background="green";
       alert("Correto!");
       setPontos((Prev) => (Prev += 10));
       setRespostasCertas((Prev) => Prev + 1);
@@ -196,6 +197,7 @@ function Biblia() {
         }.`
       );
       setRespostasErradas((Prev) => Prev + 1);
+      selectedButton.style.backgroundColor = "red";
     }
 
     // Vai para a próxima pergunta se houver
